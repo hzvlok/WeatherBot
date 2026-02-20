@@ -2,13 +2,13 @@ import telebot
 from telebot import types
 import requests
 
-# Токены (получи их перед запуском)
+
 TELEGRAM_TOKEN = "8138541419:AAEYnArKvkRkgdL908MSOgz4an4rhGGs_hU"  # Получи у @BotFather
 WEATHER_API_KEY = "4c7a54327100a7663cb8cd417ff1abeb"    # Получи на openweathermap.org
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
-# Эмодзи для красоты
+
 WEATHER_EMOJI = {
     'clear sky': '☀️',
     'few clouds': '🌤',
@@ -30,7 +30,6 @@ def get_weather_emoji(description):
     return '🌍'
 
 def get_weather_data(city):
-    """Получить данные о погоде для города"""
     try:
         url = f"http://api.openweathermap.org/data/2.5/weather"
         params = {
@@ -123,7 +122,7 @@ def test_settings(message):
     """Проверка настроек бота"""
     test_msg = "🔧 Проверка настроек:\n\n"
     
-    # Проверка токена бота
+   
     if TELEGRAM_TOKEN != "YOUR_TELEGRAM_BOT_TOKEN":
         test_msg += "✅ Telegram токен: Установлен\n"
     else:
@@ -140,7 +139,7 @@ def test_settings(message):
     
     bot.reply_to(message, test_msg)
     
-    # Тестовый запрос
+    
     status_msg = bot.send_message(message.chat.id, "⏳ Тестирую API...")
     weather_data = get_weather_data("London")
     
@@ -188,7 +187,7 @@ def handle_city(message):
         bot.reply_to(message, "❌ Пожалуйста, введите название города")
         return
     
-    # Показываем, что бот работает
+ 
     status_msg = bot.reply_to(message, "⏳ Получаю данные о погоде...")
     
     weather_data = get_weather_data(city)
@@ -261,7 +260,7 @@ def main():
     print("=" * 50)
     print("🚀 Бот запущен и готов к работе!\n")
     
-    # Запуск бота
+   
     try:
         bot.infinity_polling()
     except Exception as e:

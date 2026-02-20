@@ -3,8 +3,8 @@ from telebot import types
 import requests
 
 
-TELEGRAM_TOKEN = "8138541419:AAEYnArKvkRkgdL908MSOgz4an4rhGGs_hU"  # Получи у @BotFather
-WEATHER_API_KEY = "4c7a54327100a7663cb8cd417ff1abeb"    # Получи на openweathermap.org
+TELEGRAM_TOKEN = "8138541419:AAEYnArKvkRkgdL908MSOgz4an4rhGGs_hU"  
+WEATHER_API_KEY = "4c7a54327100a7663cb8cd417ff1abeb"    
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
